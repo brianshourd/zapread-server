@@ -3,7 +3,7 @@
 // it to json, send it back.
 var request = require('request');
 var express = require('express');
-var nodecr = require('nodecr');
+//var nodecr = require('nodecr');
 var fs = require('fs');
 var path = require('path');
 var _ = require('underscore');
@@ -47,6 +47,7 @@ function alchemyText(text, callback) {
 // Process an image
 // callback(error, response, body, text)
 function processImage(filename, callback) {
+    /*
     nodecr.process(filename, function(err, text) {
         if (err) { console.error(err); }
         else {
@@ -55,6 +56,7 @@ function processImage(filename, callback) {
             });
         }
     });
+    */
 };
 
 /*
