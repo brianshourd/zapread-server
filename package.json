@@ -1,0 +1,13 @@
+{
+    "name": "zap-read-server",
+    "version": "0.0.1",
+    "author": "Brian Shourd <brian.shourd@gmail.com>",
+    "description": "The server for Zap Read",
+    "dependencies": {
+        "request": "*",
+        "express": "*",
+        "nodecr": "*",
+        "underscore": "*",
+        "underscore.string": "*"
+    }
+}
