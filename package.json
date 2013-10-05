@@ -6,6 +6,7 @@
     "dependencies": {
         "request": "*",
         "express": "*",
+        "nodecr": "*",
         "underscore": "*",
         "underscore.string": "*"
     }
