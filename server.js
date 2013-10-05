@@ -67,12 +67,14 @@ nodecr.process(__dirname + '/test2.jpg', function(err, text) {
 });
 */
 
-/*
+var processed = "";
 processImage(__dirname + '/test.jpg', function(error, response, body, text) {
+    processed = body;
+    /*
     console.log(processText(text));
     console.log(body);
+    */
 });
-*/
 
 // Set up the server
 // Should accept an image through POST, then save the image, run it
@@ -107,7 +109,7 @@ app.get('/images', function(req, res){
   res.send('<form method="post" enctype="multipart/form-data">'
     + '<p>Image: <input type="file" name="image" /></p>'
     + '<p><input type="submit" value="Upload" /></p>'
-    + '</form>');
+    + '</form>' + processed);
 });
 
 app.listen(port, function() {
