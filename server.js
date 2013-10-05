@@ -67,14 +67,14 @@ nodecr.process(__dirname + '/test2.jpg', function(err, text) {
 });
 */
 
+/*
 var processed = "";
 processImage(__dirname + '/test.jpg', function(error, response, body, text) {
     processed = body;
-    /*
     console.log(processText(text));
     console.log(body);
-    */
 });
+*/
 
 // Set up the server
 // Should accept an image through POST, then save the image, run it
@@ -89,7 +89,7 @@ app.use(express.bodyParser({
 
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, './uploads')));
+app.use('/', express.static(__dirname + '/www'));
 var port = process.env.PORT || 3000;
 
 function addImage(req, res, next) {
@@ -103,14 +103,16 @@ function addImage(req, res, next) {
     console.log(tmpFileName);
 };
 
+/*
 app.post('/images', addImage);
 
 app.get('/images', function(req, res){
   res.send('<form method="post" enctype="multipart/form-data">'
     + '<p>Image: <input type="file" name="image" /></p>'
     + '<p><input type="submit" value="Upload" /></p>'
-    + '</form>' + processed);
+    + '</form>');
 });
+*/
 
 app.listen(port, function() {
     console.log('Server listening on port ' + port);
