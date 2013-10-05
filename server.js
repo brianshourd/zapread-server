@@ -17,6 +17,7 @@ var apiKey = fs.readFileSync('./apikey.txt', { encoding: 'utf8' });
 apiKey = _.lines(apiKey)[0];
 //console.log(apiKey);
 
+
 // This should take the text and keywords, and return a much nicer
 // array, with each entry a paragraph without newlines
 function processText(text) {
@@ -89,6 +90,7 @@ app.use(express.bodyParser({
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, './uploads')));
+var port = process.env.PORT || 3000;
 
 function addImage(req, res, next) {
     console.log("upload");
@@ -110,7 +112,7 @@ app.get('/images', function(req, res){
     + '</form>');
 });
 
-app.listen(80, function() {
-    console.log('Server listening on port 80');
+app.listen(port, function() {
+    console.log('Server listening on port ' + port);
 });
 
