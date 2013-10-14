@@ -95,23 +95,25 @@ var port = process.env.PORT || 3000;
 function addImage(req, res, next) {
     console.log("upload");
     //console.log(req);
-    /*
     var file = req.files.file,
         filePath = file.path,
+        /*
         lastIndex = filePath.lastIndexOf("/"),
         tmpFileName = filePath.substr(lastIndex + 1),
+        */
         image = req.body;
 
-    console.log(tmpFileName);
     console.log(filePath);
-    image.fileName = tmpFileName;
-    */
+    //image.fileName = tmpFileName;
 
     //Run it through processImage
-    processImage(__dirname + '/test.jpg', function(error, response, body, text) {
+    processImage(filePath, function(error, response, body, text) {
         //Want to return some json
         //{ paragraphs: [string], keywords: [string] }
-        var keywords = _.map(body.entities, _.pluck('text'));
+        body = JSON.parse(body);
+        var keywords = _.map(body.entities, function(entity) {
+            return entity.text;
+        });
         var json = JSON.stringify({
             paragraphs: processText(text),
             keywords: keywords
